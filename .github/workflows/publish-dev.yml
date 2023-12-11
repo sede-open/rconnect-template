@@ -16,13 +16,6 @@ jobs:
       - uses: sede-open/rstudio-actions/setup-connect@main
       - uses: actions/checkout@v3
 
-
-      #- uses: sede-open/r-lib-actions/setup-pandoc@v2-branch
-      - shell: bash
-        run: |
-          mkdir -p ./src/credentials \
-            && echo aGVsbG8K \
-            | base64 -d > ./src/credentials/autoSumWebADLS.pfx
       - shell: bash
         run: cd src && Rscript -e 'rsconnect::writeManifest()'
 
